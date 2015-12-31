@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head >
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="scripts/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/bootstrap.css" />
+        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+        <title>JSP Page</title>
+
+    </head>
+    <body background="Imagens/26102.jpg">
+        <header>
+
+        </header>
+
+        <section>
+            <article>
+                <form action="srvLogin" method="POST">
+                    <font color = "40E0D0">
+                    <label>Usu&aacute;rio</label><br>
+                    <input type="text" name="usuario" required placeholder="Digite o seu usuário..." /><br>
+                    <label for="inputPassword">Senha</label><br>
+                    <input id="inputPassword" type="password" name="senha" required placeholder="Digite a sua senha..." /><br>
+                    <label>
+                        <input type="checkbox" /> Lembrar senha
+                    </label><br>
+                    <button type="submit" name="opc" value="entrar" >Acessar</button>
+
+                </form>
+                 <nav>
+                    <ul>
+                        <li><a href="cadastroUsuario.jsp">Criar conta.</a></li>
+                    </ul>
+                </nav>
+            </article>
+            
+
+        </section>
+
+        <footer>
+         
+        </footer>
+    </body>
+</html>

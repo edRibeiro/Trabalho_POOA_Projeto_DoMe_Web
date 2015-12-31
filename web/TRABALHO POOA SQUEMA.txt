@@ -1,0 +1,52 @@
+CREATE database domeweb;
+use domeweb;
+create table IF NOT EXISTS SERIE(
+					id INT(6) AUTO_INCREMENT,
+					titulo VARCHAR(50),
+					PRIMARY KEY(id)
+					);
+create table IF NOT EXISTS LIVRO(
+										isbn VARCHAR(13),
+										titulo VARCHAR(50),
+                                        id_serie INT(6),
+                                        autor VARCHAR(250),
+                                        editora VARCHAR(30),
+                                        cidade VARCHAR(50),
+                                        ano INT(4),
+                                        edicao INT(3),
+                                        sinopse TEXT,
+                                        foto VARCHAR(256),
+										PRIMARY KEY(isbn),
+                                        FOREIGN KEY(id_serie) REFERENCES SERIE(id)                                       
+					);
+create table IF NOT EXISTS USUARIO(
+					id INT(6) AUTO_INCREMENT,
+					nome VARCHAR(50),                                       
+					email VARCHAR(60),                                        
+					usuario VARCHAR(50),                                        
+					senha VARCHAR(16),                                        
+					foto VARCHAR(256),
+                    status BOOLEAN,
+					PRIMARY KEY(id)
+					);
+create table IF NOT EXISTS USER_LIVRO(
+					id INT(6) AUTO_INCREMENT,
+					id_user INT(6),
+                    isbn_livro VARCHAR(13),
+					gotit BOOLEAN,
+					interesse BOOLEAN,
+					PRIMARY KEY(id),
+                                        FOREIGN KEY(id_user) REFERENCES USUARIO(id),
+                                        FOREIGN KEY(isbn_livro) REFERENCES LIVRO(isbn)
+					);
+					
+INSERT INTO usuario(nome,usuario,senha,status) VALUES('Administrador', 'admin', 'admin', true);
+INSERT INTO serie(titulo) VALUES('Não serializado');
+INSERT INTO serie(titulo) VALUES('Saga do mago');
+INSERT INTO serie(titulo) VALUES('A Crônica do Matador do Rei');
+INSERT INTO livro(isbn, titulo, id_serie, autor, editora, edicao, ano) VALUES(9788567296005, 'Aprendiz', 2, 'Feist, Raymond E.','Saída De Emergência', 1, 2013);
+INSERT INTO livro(isbn, titulo, id_serie, autor, editora, edicao, ano) VALUES(9788567296036, 'Mestre', 2, 'Feist, Raymond E.','Saída De Emergência', 1, 2014);
+INSERT INTO livro(isbn, titulo, id_serie, autor, editora, edicao, ano) VALUES(9788567296173, 'Espinho de Prata',2, 'Feist, Raymond E.','Saída De Emergência', 1, 2014);
+INSERT INTO livro(isbn, titulo, id_serie, autor, editora, edicao, ano) VALUES(9788567296258,  'As Trevas de Sethanon',2, 'Feist, Raymond E.','Saída De Emergência', 1, 2015);
+INSERT INTO livro(isbn, titulo, id_serie, autor, editora, edicao, ano) VALUES(8599296493, 'O nome do vento',3,'Patrick Rothfuss',,'ARQUEIRO',1,2009);
+INSERT INTO livro(isbn, titulo, id_serie, autor, editora, edicao, ano) VALUES(8580410320, 'O temor do sabio',3,'Patrick Rothfuss','ARQUEIRO',1,2011);
